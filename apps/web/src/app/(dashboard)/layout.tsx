@@ -5,7 +5,7 @@ import Link from "next/link"
 export default async function DashboardLayout({
     children,
 }: {
-    children: React.Node
+    children: React.ReactNode
 }) {
     const session = await auth()
 
