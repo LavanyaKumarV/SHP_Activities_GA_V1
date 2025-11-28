@@ -29,6 +29,9 @@ COPY turbo.json turbo.json
 # ARG DATABASE_URL
 # ENV DATABASE_URL=${DATABASE_URL}
 
+# Set dummy DATABASE_URL for prisma generate
+ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
+
 RUN npx turbo run build --filter=web...
 
 # 3. Production image, copy all the files and run next
