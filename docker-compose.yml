@@ -9,5 +9,5 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      # - DATABASE_URL=postgresql://user:password@host:5432/db
+      - DATABASE_URL=postgresql://user:password@host:5432/db
     restart: always
