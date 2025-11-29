@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
   web:
     build:
       context: .
@@ -9,5 +22,10 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://user:password@host:5432/db
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/shp_db
     restart: always
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

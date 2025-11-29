@@ -5,14 +5,18 @@
     "types": "src/index.ts",
     "scripts": {
         "db:generate": "prisma generate",
-        "db:push": "prisma db push"
+        "db:push": "prisma db push",
+        "db:seed": "tsx seed.ts"
     },
     "dependencies": {
-        "@prisma/client": "^5.0.0"
+        "@prisma/client": "^5.0.0",
+        "bcryptjs": "^2.4.3"
     },
     "devDependencies": {
         "prisma": "^5.0.0",
         "typescript": "latest",
-        "@types/node": "latest"
+        "@types/node": "latest",
+        "@types/bcryptjs": "^2.4.6",
+        "tsx": "^4.7.0"
     }
 }
